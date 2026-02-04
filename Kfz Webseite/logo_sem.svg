@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Hintergrund: Solides Quadrat mit abgerundeten Ecken (App-Icon Style) -->
+  <rect width="512" height="512" rx="100" fill="#0f172a"/>
+  
+  <!-- "S" - Weiß, kantig, technisch -->
+  <path fill="#ffffff" d="M140 160h-60v-40h120v100H120v40h80v80H80v-100h80v-40H80V340h120v-40"/> <!-- Simplified blocky S base -->
+  <path fill="#ffffff" d="M180 130 H100 V170 H180 V210 H80 V110 H180 Z M180 370 H100 V330 H180 V290 H80 V410 H200 V370 Z" opacity="0"/> <!-- Placeholder logic replacement below -->
+  
+  <!-- Custom Drawn Letters for "SEM" to ensure it works everywhere -->
+  <g transform="translate(66, 156)">
+      <!-- S -->
+      <path fill="#ffffff" d="M100,0 L100,30 L30,30 L30,80 L100,80 L100,200 L0,200 L0,170 L70,170 L70,120 L0,120 L0,0 Z" />
+      
+      <!-- E (Das Highlight) -->
+      <path fill="#3b82f6" d="M220,0 L220,30 L150,30 L150,85 L210,85 L210,115 L150,115 L150,170 L220,170 L220,200 L120,200 L120,0 Z" />
+      
+      <!-- M -->
+      <path fill="#ffffff" d="M350,200 L320,200 L320,80 L290,200 L260,200 L230,80 L230,200 L200,200 L200,0 L250,0 L275,100 L300,0 L350,0 Z" />
+  </g>
+
+  <!-- Untertitel (optional, aber für Dock-Icons oft zu klein, daher hier als dekorative Linie) -->
+  <rect x="66" y="390" width="380" height="10" rx="5" fill="#3b82f6" opacity="0.5" />
+</svg>

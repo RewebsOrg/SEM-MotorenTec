@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  /* Anthrazit Farbschema */
+  --color-anthracite: #1a1a1a;
+  --color-anthracite-light: #252525;
+  --color-anthracite-dark: #0f0f0f;
+  /* Akzentfarbe - Blau-Grau */
+  --color-accent: #4a90a4;
+  --color-accent-light: #5ba3b8;
+  --color-accent-dark: #3a7a8e;
+  /* Für Kompatibilität */
+  --color-charcoal: #1a1a1a;
+  --color-charcoal-light: #252525;
+  --color-electric-blue: #4a90a4;
+  --color-electric-blue-dark: #3a7a8e;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --animate-glow: glow 1.5s ease-in-out infinite;
+
+  @keyframes glow {
+
+    0%,
+    100% {
+      box-shadow: 0 0 5px rgba(74, 144, 164, 0.4);
+      filter: brightness(1);
+    }
+
+    50% {
+      box-shadow: 0 0 25px rgba(74, 144, 164, 0.8);
+      filter: brightness(1.3);
+    }
+  }
+}
+
+:root {
+  --background: #1a1a1a;
+  --foreground: #ffffff;
+  --accent: #4a90a4;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Glass Card Styles */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-dark {
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4a4a4a;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(74, 144, 164, 0.4);
+  color: white;
+}
