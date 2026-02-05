@@ -6,36 +6,32 @@ import { ChevronDown, HelpCircle } from 'lucide-react';
 
 const faqs = [
   {
-    question: 'Wie erkenne ich einen Motorschaden?',
-    answer: 'Typische Anzeichen für einen Motorschaden sind: ungewöhnliche Geräusche (Klopfen, Klappern), Leistungsverlust, erhöhter Ölverbrauch, weißer oder blauer Rauch aus dem Auspuff, Motorwarnleuchte leuchtet auf, oder der Motor springt nicht mehr an. Bei diesen Symptomen sollten Sie umgehend eine Werkstatt aufsuchen.',
+    question: 'Was macht SEM MotorenTec besonders?',
+    answer: 'SEM MotorenTec steht für höchste Qualität, Fachkompetenz und kundenorientierten Service. Wir sind auf Motoreninstandsetzung spezialisiert und bieten moderne Diagnoseverfahren sowie präzise Reparaturen an.',
   },
   {
-    question: 'Was kostet eine Motorinstandsetzung?',
-    answer: 'Die Kosten variieren stark je nach Fahrzeugtyp, Schadensumfang und benötigten Ersatzteilen. Eine einfache Reparatur kann bei wenigen hundert Euro beginnen, während eine komplette Motorüberholung mehrere tausend Euro kosten kann. Wir erstellen Ihnen nach einer gründlichen Diagnose ein transparentes Angebot ohne versteckte Kosten.',
-  },
-  {
-    question: 'Wie lange dauert eine Motorreparatur?',
-    answer: 'Die Reparaturdauer hängt vom Umfang des Schadens ab. Kleinere Reparaturen können in 1-3 Tagen erledigt sein. Eine komplette Motorüberholung dauert in der Regel 1-2 Wochen. Wir informieren Sie nach der Diagnose über die voraussichtliche Dauer und halten Sie während der Reparatur auf dem Laufenden.',
-  },
-  {
-    question: 'Bieten Sie einen Abholservice an?',
-    answer: 'Ja, wir bieten einen bundesweiten Abholservice an. Wir holen Ihr Fahrzeug direkt bei Ihnen ab und bringen es nach der Reparatur wieder zurück. Der Transport erfolgt mit einem versicherten Fahrzeugtransporter. Die Kosten hierfür teilen wir Ihnen vorab mit.',
+    question: 'Wo ist SEM MotorenTec?',
+    answer: 'Unser Betrieb befindet sich in der Windelsbleicherstr. 188a, 33659 Bielefeld.',
   },
   {
     question: 'Welche Fahrzeugmarken reparieren Sie?',
-    answer: 'Wir sind auf Motoreninstandsetzung für alle gängigen Fahrzeugmarken spezialisiert – egal ob BMW, Mercedes, Audi, VW, Opel, Ford oder andere Hersteller. Sowohl Benzin- als auch Dieselmotoren werden von uns fachgerecht repariert.',
+    answer: 'Wir arbeiten mit allen gängigen Automarken und Modellen, sowohl mit Benzin- als auch Dieselmotoren.',
   },
   {
-    question: 'Gibt es eine Garantie auf die Reparatur?',
-    answer: 'Ja, wir geben auf alle durchgeführten Arbeiten eine Garantie. Die genaue Garantiedauer hängt von der Art der Reparatur ab und wird Ihnen im Angebot mitgeteilt. Wir arbeiten ausschließlich mit hochwertigen Ersatzteilen, um eine langlebige Reparatur zu gewährleisten.',
+    question: 'Bieten Sie einen Abholservice an?',
+    answer: 'Auf Wunsch holen wir Ihr Fahrzeug bequem bei Ihnen ab und bringen es nach der Reparatur wieder zurück.',
   },
   {
-    question: 'Wann sollte die Steuerkette gewechselt werden?',
-    answer: 'Anders als der Zahnriemen hat die Steuerkette keine festgelegten Wechselintervalle. Sie sollte jedoch gewechselt werden, wenn Rasseln oder Klappern beim Kaltstart auftritt, die Motorleuchte angeht, oder bei einer Inspektion eine Längung festgestellt wird. Präventiver Wechsel bei hoher Laufleistung kann teure Folgeschäden vermeiden.',
+    question: 'Wie lange dauert eine Motorinstandsetzung?',
+    answer: 'Die Dauer einer Motorinstandsetzung hängt vom Schadensumfang und dem jeweiligen Fahrzeug ab. In der Regel erhalten Sie nach der Diagnose ein transparentes Zeitfenster.',
   },
   {
-    question: 'Kann ich während der Reparatur ein Ersatzfahrzeug bekommen?',
-    answer: 'Wir selbst bieten keine Ersatzfahrzeuge an, können Ihnen aber gerne Partnerwerkstätten empfehlen, die Mietwagen vermitteln. Sprechen Sie uns bei der Auftragserteilung darauf an.',
+    question: 'Gibt es eine Gewährleistung?',
+    answer: 'Ja, wir gewähren auf unsere Reparaturen und verbauten Ersatzteile eine Gewährleistung gemäß den gesetzlichen Bestimmungen.',
+  },
+  {
+    question: 'Welche Dienstleistungen bieten Sie an?',
+    answer: 'Wir bieten Motorinstandsetzungen sowie vorsorgliche Überholungen an. Steuerkettenwechsel, Fehlerdiagnose, Motorölwechsel sowie viele weitere Services rund ums Fahrzeug.',
   },
 ];
 
@@ -106,7 +102,7 @@ const FAQ = () => {
         <div className="text-center mt-12">
           <p className="text-white/60 mb-4">Ihre Frage ist nicht dabei?</p>
           <a
-            href="#anfrage"
+            href="/kontakt"
             className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-6 py-3 rounded-lg font-semibold transition-all"
           >
             Kontaktieren Sie uns

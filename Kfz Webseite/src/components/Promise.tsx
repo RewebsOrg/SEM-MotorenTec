@@ -69,7 +69,7 @@ const Promise = () => {
               </p>
 
               <a
-                href="#anfrage"
+                href="/kontakt"
                 className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-6 py-3 rounded-lg font-semibold transition-all animate-glow"
               >
                 Jetzt Kontakt aufnehmen

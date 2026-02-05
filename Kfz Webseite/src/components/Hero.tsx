@@ -54,7 +54,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-accent font-bold tracking-widest text-sm uppercase mb-4">
+            <h2 className="text-accent font-bold tracking-widest text-base md:text-lg uppercase mb-4">
               Motorinstandsetzung für alle Marken
             </h2>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-6 leading-[1.1]">
@@ -64,15 +64,11 @@ const Hero = () => {
                 WIR BRINGEN IHN IN BESTFORM.
               </span>
             </h1>
-            <p className="text-white/70 text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
-              Ein Motor ist das Herz jedes Fahrzeugs. Wir sind Ihr zuverlässiger Partner für
-              Motoreninstandsetzung, Motorüberholung und Reparatur – bundesweit.
-            </p>
 
             {/* CTA Buttons - Prominent Anfrage Button */}
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <a
-                href="#anfrage"
+                href="/kontakt"
                 className="group bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-lg font-bold transition-all flex items-center justify-center gap-3 shadow-lg shadow-accent/30 hover:shadow-accent/50 text-lg animate-glow"
               >
                 <span>Jetzt Anfrage stellen</span>

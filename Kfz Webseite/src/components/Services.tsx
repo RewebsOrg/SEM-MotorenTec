@@ -2,50 +2,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Wrench, RefreshCw, Link2, Truck, ArrowRight } from 'lucide-react';
-
-const services = [
-  {
-    id: 'motorinstandsetzung',
-    title: 'Motorinstandsetzung',
-    subtitle: 'Professionelle Reparatur',
-    description: 'Ihr Motor läuft nicht mehr rund? Wir analysieren den Schaden und setzen ihn fachgerecht instand. Mit modernster Technik und jahrelanger Erfahrung bringen wir Ihren Motor wieder auf Vordermann – egal ob Benziner oder Diesel.',
-    features: ['Komplette Motoranalyse', 'Ersatz verschlissener Teile', 'Alle Marken & Modelle', 'Garantie auf Arbeit'],
-    icon: <Wrench size={28} />,
-    image: '/images/IMG_9191.JPG',
-  },
-  {
-    id: 'motorueberholung',
-    title: 'Motorüberholung',
-    subtitle: 'Generalüberholung',
-    description: 'Bei einer Motorüberholung wird Ihr Motor komplett zerlegt, gereinigt und alle Verschleißteile werden erneuert. Das Ergebnis: Ein Motor wie neu – mit maximaler Lebensdauer und voller Leistung.',
-    features: ['Komplette Zerlegung', 'Neue Kolben & Lager', 'Zylinderkopfbearbeitung', 'Testlauf & Qualitätskontrolle'],
-    icon: <RefreshCw size={28} />,
-    image: '/images/IMG_9192.JPG',
-  },
-  {
-    id: 'steuerkettenwechsel',
-    title: 'Steuerkettenwechsel',
-    subtitle: 'Präventive Wartung',
-    description: 'Eine defekte oder gelängte Steuerkette kann zu schweren Motorschäden führen. Wir wechseln Ihre Steuerkette fachgerecht und verhindern so teure Folgeschäden. Vorbeugen ist besser als reparieren.',
-    features: ['Kettenspanner-Prüfung', 'Kompletter Kettensatz', 'Zahnräder-Kontrolle', 'Ölwechsel inklusive'],
-    icon: <Link2 size={28} />,
-    image: '/images/IMG_9193.JPG',
-  },
-  {
-    id: 'abholservice',
-    title: 'Abholservice',
-    subtitle: 'Bundesweiter Service',
-    description: 'Sie können nicht zu uns kommen? Kein Problem! Unser Abholservice holt Ihr Fahrzeug bundesweit ab und bringt es nach der Reparatur wieder zu Ihnen zurück. Bequemer geht es nicht.',
-    features: ['Bundesweite Abholung', 'Versicherter Transport', 'Flexible Termine', 'Faire Konditionen'],
-    icon: <Truck size={28} />,
-    image: '/images/IMG_9188.JPG',
-  },
-];
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { services } from '@/data/services';
 
 const Services = () => {
   return (
-    <section id="leistungen" className="py-24 bg-anthracite relative overflow-hidden">
+    <section id="leistungen" className="py-16 bg-anthracite relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-20">
@@ -72,7 +35,7 @@ const Services = () => {
             >
               {/* Image */}
               <div className="lg:w-1/2">
-                <div className="relative group">
+                <Link href={`/leistungen/${service.slug}`} className="block relative group">
                   <div className="absolute -inset-4 bg-accent/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative overflow-hidden rounded-2xl">
                     <img
@@ -86,7 +49,7 @@ const Services = () => {
                       {service.subtitle}
                     </div>
                   </div>
-                </div>
+                </Link>
               </div>
 
               {/* Content */}
@@ -108,13 +71,21 @@ const Services = () => {
                   ))}
                 </div>
 
-                <a
-                  href="#anfrage"
-                  className="inline-flex items-center gap-2 text-accent hover:text-accent-light font-semibold group animate-glow px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 transition-all"
-                >
-                  <span>Jetzt anfragen</span>
-                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </a>
+                <div className="flex gap-4">
+                  <Link
+                    href={`/leistungen/${service.slug}`}
+                    className="inline-flex items-center gap-2 text-white bg-accent hover:bg-accent-dark font-semibold px-6 py-3 rounded-lg transition-all"
+                  >
+                    <span>Details ansehen</span>
+                  </Link>
+                  <a
+                    href="/kontakt"
+                    className="inline-flex items-center gap-2 text-accent hover:text-accent-light font-semibold group px-4 py-3 rounded-lg bg-white/5 hover:bg-white/10 transition-all border border-white/10 animate-glow"
+                  >
+                    <span>Jetzt anfragen</span>
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
               </div>
             </motion.div>
           ))}
