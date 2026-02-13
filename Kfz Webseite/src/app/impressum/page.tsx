@@ -4,8 +4,8 @@ import Footer from '@/components/Footer';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Impressum - SEM MotorenTec',
-    description: 'Impressum von SEM MotorenTec. Angaben gemäß § 5 TMG.',
+    title: 'Impressum | SEM MotorenTec - Rechtliche Informationen',
+    description: 'Rechtliche Informationen und Kontaktangaben von SEM MotorenTec Bielefeld.',
 };
 
 export default function ImpressumPage() {
@@ -22,23 +22,36 @@ export default function ImpressumPage() {
                         <p>
                             <strong>SEM MotorenTec</strong><br />
                             Windelsbleicherstr. 188a<br />
-                            33659 Bielefeld
+                            33659 Bielefeld<br />
+                            Deutschland
+                        </p>
+                        <p className="mt-4">
+                            <strong>Inhaber:</strong> Seimi Seimi Oglou
                         </p>
                     </section>
 
                     <section>
                         <h2 className="text-2xl font-bold text-white mb-4">Kontakt</h2>
+                        <div className="space-y-2">
+                            <p>Telefon: 0521 97795644</p>
+                            <p>E-Mail: <a href="mailto:info@sem-motorentec.de" className="text-accent hover:underline">info@sem-motorentec.de</a></p>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 className="text-2xl font-bold text-white mb-4">Berufsrechtliche Angaben</h2>
                         <p>
-                            Telefon: 0160 3872886<br />
-                            E-Mail: info@sem-motorentec.com
+                            <strong>Gesetzliche Berufsbezeichnung:</strong> Kfz-Meister<br />
+                            <strong>Zuständige Kammer:</strong> Handwerkskammer Bielefeld<br />
+                            <strong>Verliehen in:</strong> Deutschland
                         </p>
                     </section>
 
                     <section>
                         <h2 className="text-2xl font-bold text-white mb-4">Umsatzsteuer-ID</h2>
                         <p>
-                            Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-                            <span className="text-white/40">[Bitte USt-ID ergänzen, z.B. DE 123 456 789]</span>
+                            Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:<br />
+                            <span className="italic">beantragt</span>
                         </p>
                     </section>
 
@@ -63,7 +76,7 @@ export default function ImpressumPage() {
                     </section>
 
                     <section>
-                        <h2 className="text-2xl font-bold text-white mb-4">Verbraucherstreitbeilegung / Universalschlichtungsstelle</h2>
+                        <h2 className="text-2xl font-bold text-white mb-4">Verbraucherstreitbeilegung</h2>
                         <p>
                             Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
                         </p>

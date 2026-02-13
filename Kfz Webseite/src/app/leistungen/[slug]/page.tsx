@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
         title: `${service.title} - Professioneller Service`,
-        description: `${service.description} ✓ Meisterbetrieb in Bielefeld ✓ Bundesweiter Abholservice ✓ 12 Monate Garantie. Jetzt anfragen!`,
+        description: `${service.description} ✓ Meisterbetrieb in Bielefeld ✓ Bundesweiter Abholservice ✓ 12 Monate Gewährleistung. Jetzt anfragen!`,
         openGraph: {
             title: `${service.title} | SEM MotorenTec`,
             description: service.description,

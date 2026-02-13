@@ -7,6 +7,7 @@ import ContactForm from '@/components/ContactForm';
 import { services } from '@/data/services';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 interface ServicePageClientProps {
@@ -14,7 +15,14 @@ interface ServicePageClientProps {
 }
 
 export default function ServicePageClient({ slug }: ServicePageClientProps) {
+    const [mounted, setMounted] = React.useState(false);
     const service = services.find((s) => s.slug === slug);
+
+    React.useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return null;
 
     if (!service) {
         return (
@@ -33,12 +41,15 @@ export default function ServicePageClient({ slug }: ServicePageClientProps) {
             <Navbar />
 
             {/* Hero Header */}
-            <div className="relative pt-32 pb-12 lg:pt-48 lg:pb-20 overflow-hidden">
+            <div className="relative pt-32 pb-6 lg:pt-48 lg:pb-8 overflow-hidden">
                 <div className="absolute inset-0 z-0">
-                    <img
+                    <Image
                         src={service.image}
-                        alt={service.title}
-                        className="w-full h-full object-cover opacity-20 blur-sm"
+                        alt={`${service.title} Hintergrundbild`}
+                        fill
+                        className="object-cover opacity-20 blur-sm"
+                        quality={60}
+                        priority
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-anthracite/90 via-anthracite/95 to-anthracite" />
                 </div>
@@ -71,18 +82,16 @@ export default function ServicePageClient({ slug }: ServicePageClientProps) {
             </div>
 
             {/* Main Content */}
-            <div className="max-w-7xl mx-auto px-6 py-12">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-24">
+            <div className="max-w-7xl mx-auto px-6 pt-4 pb-12">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
                     {/* Details */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.4 }}
                     >
-                        <div className="prose prose-invert prose-lg max-w-none">
-                            <div className="text-white/80 leading-relaxed text-lg mb-8 whitespace-pre-line">
-                                {service.detailedDescription || service.description}
-                            </div>
+                        <div className="text-white/80 leading-relaxed text-lg mb-8 whitespace-pre-line">
+                            {(service.detailedDescription || service.description).trim()}
                         </div>
 
                         <div className="mt-12">
@@ -105,11 +114,14 @@ export default function ServicePageClient({ slug }: ServicePageClientProps) {
                         transition={{ duration: 0.6, delay: 0.6 }}
                         className="space-y-8"
                     >
-                        <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10">
-                            <img
+                        <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10 relative h-[400px]">
+                            <Image
                                 src={service.image}
-                                alt={service.title}
-                                className="w-full h-auto object-cover"
+                                alt={`${service.title} - Detail Ansicht`}
+                                fill
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                className="object-cover"
+                                quality={90}
                             />
                         </div>
 

@@ -7,9 +7,18 @@ import { services } from '@/data/services';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export default function ServicesOverviewClient() {
+    const [mounted, setMounted] = React.useState(false);
+
+    React.useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return null;
+
     return (
         <main className="min-h-screen bg-anthracite">
             <Navbar />
@@ -18,8 +27,8 @@ export default function ServicesOverviewClient() {
             <div className="pt-32 pb-16 lg:pt-48 lg:pb-24 px-6 text-center relative overflow-hidden">
                 <div className="absolute top-0 inset-x-0 h-full bg-gradient-to-b from-anthracite-light/20 to-transparent pointer-events-none" />
                 {/* Background decoration */}
-                <div className="absolute top-20 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[150px] pointer-events-none" />
-                <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[150px] pointer-events-none" />
+                <div className="absolute top-20 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
 
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -28,11 +37,11 @@ export default function ServicesOverviewClient() {
                     className="max-w-4xl mx-auto relative z-10"
                 >
                     <h1 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tight">
-                        Unsere <span className="text-accent">Dienstleistungen</span>
+                        Unsere <span className="text-accent">Leistungen</span> im Überblick
                     </h1>
                     <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                        Wir bieten Ihnen professionelle Lösungen rund um Ihren Motor.
-                        Von der Instandsetzung bis zur Generalüberholung – alles aus einer Hand.
+                        Motorinstandsetzung & Generalüberholung, Steuerkettenwechsel & Kettenschaden,
+                        Lagerschaden Reparatur, Ölverbrauch Reparatur – alles aus einer Hand.
                     </p>
                     <div className="w-24 h-1 bg-accent mx-auto mt-8 rounded-full" />
                 </motion.div>
@@ -53,11 +62,13 @@ export default function ServicesOverviewClient() {
                         {/* Image Side */}
                         <div className="lg:w-1/2 relative group">
                             <div className="absolute -inset-4 bg-accent/10 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                            <Link href={`/leistungen/${service.slug}`} className="block h-full relative overflow-hidden rounded-2xl border border-white/5 shadow-2xl">
-                                <img
+                            <Link href={`/leistungen/${service.slug}`} className="block relative aspect-[16/9] lg:aspect-auto lg:h-full overflow-hidden rounded-2xl border border-white/5 shadow-2xl">
+                                <Image
                                     src={service.image}
-                                    alt={service.title}
-                                    className="w-full h-full min-h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                    alt={`${service.title} - ${service.subtitle} - SEM MotorenTec Meisterbetrieb`}
+                                    fill
+                                    className={`object-cover transform group-hover:scale-105 transition-transform duration-700`}
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-anthracite/90 via-transparent to-transparent opacity-60" />
 

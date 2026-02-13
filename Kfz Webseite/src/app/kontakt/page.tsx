@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import ContactPageClient from './ContactPageClient';
 
 export const metadata: Metadata = {
-    title: 'Kontakt - Motorinstandsetzung anfragen',
-    description: 'Kontaktieren Sie SEM MotorenTec für Motorinstandsetzung in Bielefeld. ✓ Kostenlose Beratung ✓ Bundesweiter Abholservice ✓ Schnelle Antwort. Jetzt Anfrage senden!',
+    title: 'Kontakt & Anfrage | Motorschaden beheben',
+    description: 'Motorschaden? Schnelle Antwort garantiert. Bundesweiter Abholservice. Kontaktieren Sie unseren Meisterbetrieb für Motorinstandsetzung. ☎ 0521 97795644',
+    keywords: ['Motorschaden beheben', 'bundesweiter Abholservice', 'Fahrzeug Abholung', 'Meisterbetrieb Motor', 'Motorinstandsetzung Kontakt'],
     openGraph: {
         title: 'Kontakt | SEM MotorenTec',
-        description: 'Kontaktieren Sie uns für Motorinstandsetzung. Kostenlose Beratung, bundesweiter Abholservice.',
+        description: 'Motorschaden? Schnelle Antwort garantiert. Bundesweiter Abholservice. ☎ 0521 97795644',
     },
 };
 

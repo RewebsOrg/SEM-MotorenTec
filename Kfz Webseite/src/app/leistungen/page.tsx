@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import ServicesOverviewClient from './ServicesOverviewClient';
 
 export const metadata: Metadata = {
-    title: 'Unsere Leistungen - SEM MotorenTec',
-    description: 'Entdecken Sie unser umfangreiches Leistungsangebot: Motorinstandsetzung, Motorüberholung, Steuerkettenwechsel und bundesweiter Abholservice. Wir sind Ihr Spezialist.',
+    title: 'Unsere Leistungen: Motorinstandsetzung, Steuerkette, Zylinderkopf',
+    description: 'Motor reparieren: Steuerkettenwechsel, Zylinderkopf Reparatur, Kolben wechseln, Kurbelwelle schleifen, Dieselmotor & Benzinmotor Reparatur. Bundesweiter Service.',
+    keywords: ['Zylinderkopf Reparatur', 'Kolben wechseln', 'Kurbelwelle schleifen', 'Nockenwelle erneuern', 'Dieselmotor Reparatur', 'Benzinmotor Reparatur', 'Steuerkettenwechsel', 'Lagerschaden'],
     openGraph: {
         title: 'Unsere Leistungen | SEM MotorenTec',
-        description: 'Motorinstandsetzung, Überholung und mehr. Ihr Spezialist für Motorentechnik.',
+        description: 'Motor reparieren: Steuerkettenwechsel, Zylinderkopf Reparatur, Kolben wechseln. Bundesweiter Abholservice.',
     },
 };
 

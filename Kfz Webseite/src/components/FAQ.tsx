@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     question: 'Gibt es eine Gewährleistung?',
-    answer: 'Ja, wir gewähren auf unsere Reparaturen und verbauten Ersatzteile eine Gewährleistung gemäß den gesetzlichen Bestimmungen.',
+    answer: 'Ja, wir gewähren auf unsere Reparaturen und verbauten Ersatzteile eine Gewährleistung von 12 Monaten.',
   },
   {
     question: 'Welche Dienstleistungen bieten Sie an?',
@@ -39,20 +39,20 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-24 bg-anthracite relative overflow-hidden">
+    <section id="faq" className="py-12 md:py-24 bg-anthracite relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-accent font-bold tracking-widest text-sm uppercase mb-4">Häufige Fragen</h2>
-          <h3 className="text-white text-3xl md:text-5xl font-black tracking-tight mb-4">FAQ</h3>
-          <p className="text-white/60 max-w-2xl mx-auto">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-accent font-bold tracking-widest text-xs md:text-sm uppercase mb-2 md:mb-4">Häufige Fragen</h2>
+          <h3 className="text-white text-2xl md:text-5xl font-black tracking-tight mb-2 md:mb-4">FAQ</h3>
+          <p className="text-white/60 max-w-2xl mx-auto text-sm md:text-base">
             Hier finden Sie Antworten auf die häufigsten Fragen rund um Motorschäden und unsere Leistungen.
           </p>
-          <div className="w-20 h-1 bg-accent mx-auto mt-6" />
+          <div className="w-20 h-1 bg-accent mx-auto mt-4 md:mt-6" />
         </div>
 
         {/* FAQ Items */}
-        <div className="space-y-4">
+        <div className="space-y-2 md:space-y-4">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
@@ -64,13 +64,13 @@ const FAQ = () => {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-white/5 transition-colors"
+                className="w-full px-4 py-3 md:px-6 md:py-5 flex items-center justify-between text-left hover:bg-white/5 transition-colors"
               >
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <HelpCircle className="text-accent" size={20} />
+                <div className="flex items-center gap-2 md:gap-4">
+                  <div className="w-8 h-8 md:w-10 md:h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <HelpCircle className="text-accent" size={16} />
                   </div>
-                  <span className="text-white font-bold text-lg pr-4 md:text-xl">{faq.question}</span>
+                  <span className="text-white font-bold text-sm md:text-lg pr-2 md:pr-4">{faq.question}</span>
                 </div>
                 <ChevronDown
                   size={20}
@@ -88,8 +88,8 @@ const FAQ = () => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-6 pt-0 ml-14">
-                      <p className="text-white/70 leading-relaxed text-lg">{faq.answer}</p>
+                    <div className="px-4 pb-4 pt-0 ml-10 md:px-6 md:pb-6 md:ml-14">
+                      <p className="text-white/70 leading-relaxed text-sm md:text-lg">{faq.answer}</p>
                     </div>
                   </motion.div>
                 )}
@@ -111,7 +111,7 @@ const FAQ = () => {
       </div>
 
       {/* Background decoration */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent/5 rounded-full blur-[150px]" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent/5 rounded-full blur-3xl" />
     </section>
   );
 };

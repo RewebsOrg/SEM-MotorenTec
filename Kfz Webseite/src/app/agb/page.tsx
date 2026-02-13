@@ -4,8 +4,8 @@ import Footer from '@/components/Footer';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Allgemeine Geschäftsbedingungen (AGB) - SEM MotorenTec',
-    description: 'Unsere allgemeinen Geschäftsbedingungen.',
+    title: 'AGB - Allgemeine Geschäftsbedingungen | SEM MotorenTec',
+    description: 'Allgemeine Geschäftsbedingungen von SEM MotorenTec – Ihr Meisterbetrieb für Motoreninstandsetzung in Bielefeld.',
 };
 
 export default function AgbPage() {
@@ -19,51 +19,128 @@ export default function AgbPage() {
                 <div className="prose prose-invert prose-lg max-w-none space-y-8 text-white/80">
                     <section>
                         <h2 className="text-2xl font-bold text-white mb-4">§ 1 Geltungsbereich</h2>
+                        <ul className="list-decimal pl-6 space-y-2">
+                            <li>Diese AGB gelten für sämtliche Verträge über Reparatur, Wartungs, Diagnose, Prüf, Pflege und sonstige Dienstleistungen an Kraftfahrzeugen sowie für den Verkauf von Ersatzteilen zwischen der KFZ-Werkstatt (nachfolgend „Werkstatt“) und ihren Kunden.</li>
+                            <li>Entgegenstehende oder abweichende Bedingungen des Kunden werden nicht Vertragsbestandteil, auch wenn die Werkstatt ihnen nicht ausdrücklich widerspricht.</li>
+                            <li>Es gilt ausschließlich deutsches Recht unter Ausschluss des UN-Kaufrechts.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 className="text-2xl font-bold text-white mb-4">§ 2 Vertragsschluss</h2>
+                        <ul className="list-decimal pl-6 space-y-2">
+                            <li>Ein Vertrag kommt durch schriftliche, elektronische, telefonische oder mündliche Auftragserteilung und deren Annahme durch die Werkstatt zustande.</li>
+                            <li>Kostenvoranschläge sind unverbindlich und stellen lediglich eine überschlägige Einschätzung dar, sofern sie nicht ausdrücklich als verbindlich gekennzeichnet sind.</li>
+                            <li>Überschreitungen eines unverbindlichen Kostenvoranschlags bis zu 20 % gelten als genehmigt. Bei darüberhinausgehenden Kosten wird der Kunde – soweit möglich – informiert.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 className="text-2xl font-bold text-white mb-4">§ 3 Leistungsumfang und Durchführung</h2>
+                        <ul className="list-decimal pl-6 space-y-2">
+                            <li>Der Leistungsumfang ergibt sich ausschließlich aus dem erteilten Auftrag.</li>
+                            <li>Die Werkstatt ist berechtigt, erforderliche Zusatzarbeiten auch ohne vorherige Rücksprache durchzuführen, wenn diese zur Betriebssicherheit oder zur Vermeidung größerer Schäden notwendig sind.</li>
+                            <li>Die Werkstatt ist berechtigt, fachkundige Dritte als Erfüllungsgehilfen einzusetzen.</li>
+                            <li>Probe, Überführungs- und Einstellfahrten gelten als genehmigt.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 className="text-2xl font-bold text-white mb-4">§ 4 Preise und Zahlungsbedingungen</h2>
+                        <ul className="list-decimal pl-6 space-y-2">
+                            <li>Es gelten die bei Auftragserteilung gültigen Preise.</li>
+                            <li>Alle Preise verstehen sich in Euro inklusive der gesetzlichen Mehrwertsteuer.</li>
+                            <li>Rechnungen sind sofort bei Abholung des Fahrzeugs ohne Abzug fällig.</li>
+                            <li>Die Werkstatt ist berechtigt, angemessene Vorschüsse zu verlangen.</li>
+                            <li>Die Herausgabe des Fahrzeugs kann bis zur vollständigen Bezahlung verweigert werden.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 className="text-2xl font-bold text-white mb-4">§ 5 Fertigstellung</h2>
+                        <ul className="list-decimal pl-6 space-y-2">
+                            <li>Angaben zu Fertigstellungsterminen sind unverbindlich, es sei denn, sie wurden ausdrücklich schriftlich als verbindlich zugesagt.</li>
+                            <li>Verzögerungen aufgrund höherer Gewalt, Lieferproblemen von Ersatzteilen oder unvorhersehbarer Umstände berechtigen nicht zu Schadensersatzansprüchen.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 className="text-2xl font-bold text-white mb-4">§ 6 Abnahme</h2>
+                        <ul className="list-decimal pl-6 space-y-2">
+                            <li>Die Abnahme des Fahrzeugs erfolgt bei Übergabe.</li>
+                            <li>Unterlässt der Kunde die Abnahme trotz Fertigstellung, kann die Werkstatt Stand- und Verwahrkosten berechnen.</li>
+                            <li>Die Abnahme gilt spätestens mit Ingebrauchnahme oder Ablauf von 7 Kalendertagen nach Fertigstellungsanzeige als erfolgt.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 className="text-2xl font-bold text-white mb-4">§ 7 Gewährleistung</h2>
+                        <ul className="list-decimal pl-6 space-y-2">
+                            <li>Es gelten die gesetzlichen Gewährleistungsrechte.</li>
+                            <li>Die Werkstatt hat das Recht zur Nacherfüllung. Erst bei Fehlschlagen bestehen weitere Ansprüche.</li>
+                            <li>Keine Gewährleistung besteht für:
+                                <ul className="list-disc pl-6 mt-2">
+                                    <li>normale Abnutzung</li>
+                                    <li>Schäden aufgrund unsachgemäßer Nutzung oder fehlender Wartung</li>
+                                    <li>vom Kunden gestellte Teile</li>
+                                    <li>Folgeschäden außerhalb des Reparaturumfangs</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 className="text-2xl font-bold text-white mb-4">§ 8 Haftung</h2>
+                        <ul className="list-decimal pl-6 space-y-2">
+                            <li>Die Werkstatt haftet uneingeschränkt nur bei Vorsatz und grober Fahrlässigkeit.</li>
+                            <li>Bei einfacher Fahrlässigkeit haftet die Werkstatt ausschließlich bei Verletzung wesentlicher Vertragspflichten und beschränkt auf den vorhersehbaren, vertragstypischen Schaden.</li>
+                            <li>Eine Haftung für mittelbare Schäden, Nutzungsausfall oder entgangenen Gewinn ist ausgeschlossen, soweit gesetzlich zulässig.</li>
+                            <li>Die Haftung für Schäden aus der Verletzung von Leben, Körper oder Gesundheit bleibt unberührt.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 className="text-2xl font-bold text-white mb-4">§ 9 Eigentumsvorbehalt und Pfandrecht</h2>
+                        <ul className="list-decimal pl-6 space-y-2">
+                            <li>Sämtliche eingebauten Ersatzteile bleiben bis zur vollständigen Zahlung Eigentum der Werkstatt.</li>
+                            <li>Der Werkstatt steht ein gesetzliches sowie vertragliches Pfandrecht am Fahrzeug zu.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 className="text-2xl font-bold text-white mb-4">§ 10 Altteile</h2>
                         <p>
-                            Für die Geschäftsbeziehung zwischen SEM MotorenTec (nachfolgend „Auftragnehmer“) und dem Kunden (nachfolgend „Auftraggeber“) gelten ausschließlich die nachfolgenden Allgemeinen Geschäftsbedingungen in ihrer zum Zeitpunkt der Auftragserteilung gültigen Fassung.
+                            Ausgebaute Teile gehen ohne gesonderte Vereinbarung in das Eigentum der Werkstatt über. Eine Herausgabepflicht besteht nicht.
                         </p>
                     </section>
 
                     <section>
-                        <h2 className="text-2xl font-bold text-white mb-4">§ 2 Vertragsabschluss</h2>
+                        <h2 className="text-2xl font-bold text-white mb-4">§ 11 Haftung für im Fahrzeug befindliche Gegenstände</h2>
                         <p>
-                            Angebote des Auftragnehmers sind freibleibend und unverbindlich. Ein Vertrag kommt erst durch die schriftliche Auftragsbestätigung des Auftragnehmers oder durch die Ausführung der Arbeiten zustande.
+                            Für im Fahrzeug zurückgelassene Gegenstände wird nur bei Vorsatz oder grober Fahrlässigkeit gehaftet. Der Kunde ist verpflichtet, Wertgegenstände vor Übergabe zu entfernen.
                         </p>
                     </section>
 
                     <section>
-                        <h2 className="text-2xl font-bold text-white mb-4">§ 3 Preise und Zahlungsbedingungen</h2>
+                        <h2 className="text-2xl font-bold text-white mb-4">§ 12 Datenschutz</h2>
                         <p>
-                            Die Preise verstehen sich inklusive der gesetzlichen Umsatzsteuer, sofern nicht anders ausgewiesen. Rechnungsbeträge sind sofort nach Erhalt der Rechnung ohne Abzug zur Zahlung fällig, sofern keine andere Vereinbarung getroffen wurde.
+                            Die Verarbeitung personenbezogener Daten erfolgt gemäß DSGVO und BDSG. Details sind der Datenschutzerklärung der Werkstatt zu entnehmen.
                         </p>
                     </section>
 
                     <section>
-                        <h2 className="text-2xl font-bold text-white mb-4">§ 4 Eigentumsvorbehalt</h2>
+                        <h2 className="text-2xl font-bold text-white mb-4">§ 13 Streitbeilegung</h2>
                         <p>
-                            Eingebaute Teile und Zubehör bleiben bis zur vollständigen Bezahlung aller Forderungen aus dem Vertrag Eigentum des Auftragnehmers.
+                            Die Werkstatt ist weder verpflichtet noch bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
                         </p>
                     </section>
 
                     <section>
-                        <h2 className="text-2xl font-bold text-white mb-4">§ 5 Gewährleistung</h2>
-                        <p>
-                            Die Gewährleistung richtet sich nach den gesetzlichen Bestimmungen. Für Motorinstandsetzungen und überholte Motoren gewähren wir eine Garantie von 12 Monaten ohne Kilometerbegrenzung, sofern im Einzelfall nichts anderes vereinbart wurde.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 className="text-2xl font-bold text-white mb-4">§ 6 Haftung</h2>
-                        <p>
-                            Der Auftragnehmer haftet für Schäden – gleich aus welchem Rechtsgrund – nur, wenn er, sein gesetzlicher Vertreter oder sein Erfüllungsgehilfe sie vorsätzlich oder grob fahrlässig verursacht hat. Für einfache Fahrlässigkeit haftet der Auftragnehmer nur bei Verletzung wesentlicher Vertragspflichten.
-                        </p>
-                    </section>
-
-                    <section>
-                        <h2 className="text-2xl font-bold text-white mb-4">§ 7 Gerichtsstand</h2>
-                        <p>
-                            Gerichtsstand für alle Streitigkeiten aus dem Vertragsverhältnis ist der Sitz des Auftragnehmers (Bielefeld), sofern der Auftraggeber Kaufmann oder eine juristische Person des öffentlichen Rechts ist.
-                        </p>
+                        <h2 className="text-2xl font-bold text-white mb-4">§ 14 Schlussbestimmungen</h2>
+                        <ul className="list-decimal pl-6 space-y-2">
+                            <li>Sollten einzelne Bestimmungen dieser AGB ganz oder teilweise unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.</li>
+                            <li>Erfüllungsort ist der Sitz der Werkstatt.</li>
+                        </ul>
                     </section>
                 </div>
             </div>

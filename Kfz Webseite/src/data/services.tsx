@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Wrench, RefreshCw, Link2, Truck } from 'lucide-react';
+import { Wrench, RefreshCw, Link2, Truck, Repeat } from 'lucide-react';
 
 export const services = [
   {
@@ -22,7 +22,7 @@ export const services = [
       
       Nach dem Wiedereinbau des Motors ins Fahrzeug erfolgt die Neubefüllung mit Motoröl sowie der Austausch von Luft-, Öl- und Kraftstofffiltern. Bei Bedarf werden elektronische Bauteile neu codiert und die Klimaanlage neu befüllt. Abschließend wird der Motor gestartet, auf Laufruhe geprüft und im Rahmen einer Probefahrt getestet, um die einwandfreie Funktion sicherzustellen.
     `,
-    features: ['Komplette Motoranalyse', 'Ersatz verschlissener Teile', 'Alle Marken & Modelle', 'Garantie auf Arbeit'],
+    features: ['Komplette Motoranalyse', 'Ersatz verschlissener Teile', 'Alle Marken & Modelle', 'Ein Jahr Gewährleistung'],
     icon: <Wrench size={28} />,
     image: '/images/IMG_9191.JPG',
   },
@@ -76,5 +76,22 @@ export const services = [
     features: ['Bundesweite Abholung', 'Versicherter Transport', 'Flexible Termine', 'Faire Konditionen'],
     icon: <Truck size={28} />,
     image: '/images/abholservice_trailer.jpg',
+  },
+  {
+    id: 'austauschmotor',
+    slug: 'austauschmotor',
+    title: 'Austauschmotor',
+    subtitle: 'Kosteneffiziente Lösung',
+    description: 'Ein Austauschmotor ist die ideale Lösung, wenn ein Motorschaden wirtschaftlich oder technisch nicht mehr sinnvoll instandgesetzt werden kann. Anstatt Ihren bestehenden Motor aufwendig zu reparieren, wird dieser durch einen fachgerecht geprüften und überholten Austauschmotor ersetzt. So bringen wir Ihr Fahrzeug schnell, zuverlässig und kosteneffizient wieder auf die Straße.',
+    detailedDescription: `
+      Ein Austauschmotor bietet eine sinnvolle Alternative, wenn der vorhandene Motor einen schweren Schaden erlitten hat oder eine Reparatur wirtschaftlich nicht mehr vertretbar ist. Statt zeit- und kostenintensiver Instandsetzungsarbeiten erhalten Sie einen geprüften Austauschmotor, der in seiner Funktion und Zuverlässigkeit einem neuen Motor sehr nahekommt.
+
+      Unsere Austauschmotoren stammen aus professioneller Aufbereitung und werden nach klar definierten Qualitätsstandards geprüft. Verschleißrelevante Komponenten werden erneuert, der Motor wird technisch bewertet und auf einwandfreie Funktion kontrolliert. So erhalten Sie eine zuverlässige Lösung mit planbaren Kosten und ohne das Risiko unerwarteter Folgeschäden.
+
+      Ein weiterer Vorteil ist die schnelle Verfügbarkeit: Während eine Motorüberholung längere Zeit in Anspruch nehmen kann, lässt sich ein Austauschmotor in deutlich kürzerer Zeit realisieren. Das macht diese Lösung besonders attraktiv für Kunden, die auf ihr Fahrzeug angewiesen sind.
+    `,
+    features: ['Geprüfte Austauschmotoren', 'Schneller Einbau', 'Kosteneffizienter als Neukauf', 'Ein Jahr Gewährleistung'],
+    icon: <Repeat size={28} />,
+    image: '/images/austauschmotor.png',
   },
 ];
