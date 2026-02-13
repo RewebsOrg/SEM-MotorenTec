@@ -81,6 +81,26 @@ export default function ImpressumPage() {
                             Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
                         </p>
                     </section>
+
+                    <section className="mt-16 p-8 rounded-2xl bg-white/5 border border-white/10 relative overflow-hidden group hover:border-accent/30 transition-colors">
+                        <div className="absolute top-0 left-0 w-1 h-full bg-accent" />
+                        <h2 className="text-2xl font-black text-white mb-6 flex items-center gap-3">
+                            <span className="text-accent">|</span> Website Design & Entwicklung
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 className="text-white/40 text-xs uppercase tracking-widest mb-2 font-bold">Agentur</h3>
+                                <p className="text-xl font-bold text-white">Rewebs</p>
+                            </div>
+                            <div className="space-y-4">
+                                <div>
+                                    <h3 className="text-white/40 text-xs uppercase tracking-widest mb-1 font-bold">Kontakt</h3>
+                                    <p className="text-white/90">Telefon: <a href="tel:+4915566290125" className="hover:text-accent transition-colors">015566290125</a></p>
+                                    <p className="text-white/90">E-Mail: <a href="mailto:rewebs.org@gmail.com" className="text-accent hover:underline">rewebs.org@gmail.com</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
 

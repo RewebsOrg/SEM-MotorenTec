@@ -147,17 +147,20 @@ const Footer = () => {
           <p className="text-white/30 text-xs tracking-wide">
             © 2026 SEM MotorenTec. Alle Rechte vorbehalten.
           </p>
-          <div className="flex flex-wrap gap-x-2 gap-y-1 -mx-2">
-            <Link href="/impressum" className="text-white/30 text-sm hover:text-white transition-colors px-4 py-3 min-h-[44px] flex items-center">Impressum</Link>
-            <Link href="/datenschutz" className="text-white/30 text-sm hover:text-white transition-colors px-4 py-3 min-h-[44px] flex items-center">Datenschutz</Link>
-            <Link href="/agb" className="text-white/30 text-sm hover:text-white transition-colors px-4 py-3 min-h-[44px] flex items-center">AGB</Link>
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-1">
+            <Link href="/impressum" className="text-white/50 text-sm font-semibold hover:text-white transition-colors px-2 py-3 min-h-[44px] flex items-center">Impressum</Link>
+            <Link href="/datenschutz" className="text-white/50 text-sm font-semibold hover:text-white transition-colors px-2 py-3 min-h-[44px] flex items-center">Datenschutz</Link>
+            <Link href="/agb" className="text-white/50 text-sm font-semibold hover:text-white transition-colors px-2 py-3 min-h-[44px] flex items-center">AGB</Link>
             <button
               onClick={showSettings}
-              className="text-white/30 text-sm hover:text-white transition-colors flex items-center gap-1 px-4 py-3 min-h-[44px]"
+              className="text-white/50 text-sm font-semibold hover:text-white transition-colors flex items-center gap-1 px-2 py-3 min-h-[44px]"
             >
               <Settings size={14} />
               <span>Cookie-Einstellungen</span>
             </button>
+          </div>
+          <div className="text-white/60 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase">
+            designt by <span className="text-white/90">rewebs</span>
           </div>
         </div>
       </div>
