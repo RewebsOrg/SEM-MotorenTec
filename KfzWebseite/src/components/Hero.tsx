@@ -69,7 +69,7 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-accent font-bold tracking-widest text-sm md:text-base lg:text-lg uppercase mb-2 md:mb-4">
-              Meisterbetrieb mit 20+ Jahren Erfahrung
+              Motorinstandsetzung aller Marken
             </h2>
             <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-black text-white tracking-tight mb-4 md:mb-6 leading-[1.1]">
               IHR MOTOR MACHT<br />
