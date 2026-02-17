@@ -98,6 +98,16 @@ export const metadata: Metadata = {
     // Google Search Console verification (to be added later)
     // google: 'your-verification-code',
   },
+  icons: {
+    icon: [
+      { url: '/icon.jpg' },
+      { url: '/images/logo.JPG' }
+    ],
+    apple: [
+      { url: '/icon.jpg' },
+      { url: '/images/logo.JPG' }
+    ],
+  },
 };
 
 export const viewport = {
