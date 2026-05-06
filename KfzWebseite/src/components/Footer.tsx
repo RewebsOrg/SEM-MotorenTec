@@ -3,11 +3,9 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, MessageCircle, Instagram, Settings } from 'lucide-react';
-import { useCookieConsent } from '@/hooks/useCookieConsent';
+import { Mail, Phone, MapPin, MessageCircle, Instagram } from 'lucide-react';
 
 const Footer = () => {
-  const { isMapAllowed, allowMap, showSettings } = useCookieConsent();
 
   return (
     <footer className="bg-anthracite-dark pt-16 pb-12 relative overflow-hidden border-t border-white/5">
@@ -68,46 +66,26 @@ const Footer = () => {
           {/* Column 2: Google Maps */}
           <div>
             <div className="block relative h-52 w-full rounded-xl overflow-hidden border border-white/10 group shadow-2xl bg-anthracite-light">
-              {isMapAllowed ? (
-                <iframe
-                  src="https://maps.google.com/maps?q=Windelsbleicherstr.%20188a,+33659+Bielefeld&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, filter: 'grayscale(100%) invert(90%)' }}
-                  allowFullScreen={false}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="group-hover:scale-105 transition-transform duration-700 pointer-events-none"
-                />
-              ) : (
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-10">
-                  <MapPin size={32} className="text-white/20 mb-3" />
-                  <p className="text-white/60 text-xs mb-3">
-                    Google Maps benötigt Ihre Zustimmung. Bitte akzeptieren Sie externe Medien in den Cookie-Einstellungen.
-                  </p>
-                  <button
-                    onClick={allowMap}
-                    className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors border border-white/10"
-                  >
-                    Google Maps aktivieren
-                  </button>
-                </div>
-              )}
-
-              {isMapAllowed && (
-                <>
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors pointer-events-none" />
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=Windelsbleicherstr+188a+33659+Bielefeld"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute bottom-3 right-3 bg-white text-anthracite text-xs font-bold px-3 py-1.5 rounded shadow-lg flex items-center gap-1.5 z-20"
-                  >
-                    <MapPin size={14} className="text-accent" />
-                    <span>Auf Karte zeigen</span>
-                  </a>
-                </>
-              )}
+              <iframe
+                src="https://maps.google.com/maps?q=Windelsbleicherstr.%20188a,+33659+Bielefeld&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: 'grayscale(100%) invert(90%)' }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+              />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors pointer-events-none" />
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Windelsbleicherstr+188a+33659+Bielefeld"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-3 right-3 bg-white text-anthracite text-xs font-bold px-3 py-1.5 rounded shadow-lg flex items-center gap-1.5 z-20"
+              >
+                <MapPin size={14} className="text-accent" />
+                <span>Auf Karte zeigen</span>
+              </a>
             </div>
           </div>
 
@@ -151,13 +129,6 @@ const Footer = () => {
             <Link href="/impressum" className="text-white/50 text-sm font-semibold hover:text-white transition-colors px-2 py-3 min-h-[44px] flex items-center">Impressum</Link>
             <Link href="/datenschutz" className="text-white/50 text-sm font-semibold hover:text-white transition-colors px-2 py-3 min-h-[44px] flex items-center">Datenschutz</Link>
             <Link href="/agb" className="text-white/50 text-sm font-semibold hover:text-white transition-colors px-2 py-3 min-h-[44px] flex items-center">AGB</Link>
-            <button
-              onClick={showSettings}
-              className="text-white/50 text-sm font-semibold hover:text-white transition-colors flex items-center gap-1 px-2 py-3 min-h-[44px]"
-            >
-              <Settings size={14} />
-              <span>Cookie-Einstellungen</span>
-            </button>
           </div>
           <div className="text-white/60 text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase">
             designt by <span className="text-white/90">rewebs</span>
