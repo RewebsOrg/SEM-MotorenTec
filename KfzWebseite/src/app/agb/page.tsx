@@ -136,7 +136,40 @@ export default function AgbPage() {
                     </section>
 
                     <section>
-                        <h2 className="text-2xl font-bold text-white mb-4">§ 14 Schlussbestimmungen</h2>
+                        <h2 className="text-2xl font-bold text-white mb-4">§ 14 Kein Anspruch auf Ersatzfahrzeug</h2>
+                        <p className="mb-3">
+                            Während der Dauer von Diagnose-, Reparatur-, Instandsetzungs-, Gewährleistungs- oder Reklamationsarbeiten besteht grundsätzlich kein Anspruch des Kunden auf die Bereitstellung eines Ersatzfahrzeugs, Mietwagens oder eines sonstigen Fahrzeugs. Dies gilt unabhängig von der Dauer der Arbeiten sowie auch im Falle unvorhergesehener Verzögerungen.
+                        </p>
+                        <p>
+                            Eine Bereitstellung eines Ersatzfahrzeugs erfolgt ausschließlich nach gesonderter schriftlicher Vereinbarung und nur nach Verfügbarkeit.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 className="text-2xl font-bold text-white mb-4">§ 15 Reklamationen und Gewährleistungsfälle</h2>
+                        <p className="mb-3">
+                            Im Falle einer Reklamation oder eines Gewährleistungsanspruchs ist das Fahrzeug vom Kunden auf eigene Kosten und Verantwortung in unsere Werkstatt zu bringen. Ein Anspruch auf Abholung, Rücktransport oder Überführung des Fahrzeugs durch uns besteht nicht.
+                        </p>
+                        <p className="mb-3">
+                            Die Prüfung einer Reklamation erfolgt ausschließlich in unseren Geschäftsräumen. Erst nach Überprüfung wird entschieden, ob ein Gewährleistungsfall vorliegt und welche Maßnahmen erforderlich sind.
+                        </p>
+                        <p>
+                            Beauftragt der Kunde im Zusammenhang mit einer Reklamation oder einem vermuteten Mangel eine Fremdwerkstatt mit einer Fehleranalyse, Diagnose oder Begutachtung, trägt der Kunde die hierfür entstehenden Kosten selbst. Eine Erstattung dieser Kosten erfolgt nur, wenn wir zuvor der Beauftragung der Fremdwerkstatt ausdrücklich schriftlich zugestimmt haben oder wir gesetzlich zur Kostenerstattung verpflichtet sind.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 className="text-2xl font-bold text-white mb-4">§ 16 Standzeiten und Reparaturdauer</h2>
+                        <p className="mb-3">
+                            Die Dauer einer Reparatur oder Motorinstandsetzung richtet sich nach dem jeweiligen Arbeitsumfang sowie der Verfügbarkeit von Ersatzteilen und externen Dienstleistungen. Angegebene Fertigstellungstermine sind, soweit nicht ausdrücklich schriftlich als verbindlich vereinbart, unverbindliche Richtwerte.
+                        </p>
+                        <p>
+                            Aus Verzögerungen der Reparatur entsteht kein Anspruch auf Stellung eines Ersatzfahrzeugs oder auf Schadensersatz, soweit keine vorsätzliche oder grob fahrlässige Pflichtverletzung unsererseits vorliegt.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 className="text-2xl font-bold text-white mb-4">§ 17 Schlussbestimmungen</h2>
                         <ul className="list-decimal pl-6 space-y-2">
                             <li>Sollten einzelne Bestimmungen dieser AGB ganz oder teilweise unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.</li>
                             <li>Erfüllungsort ist der Sitz der Werkstatt.</li>
