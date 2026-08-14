@@ -3,11 +3,9 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { services } from '@/data/services';
+import { services, getGallery } from '@/data/services';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
-import Link from 'next/link';
-
-import Image from 'next/image';
+import ImageSlideshow from '@/components/ImageSlideshow';
 import { motion } from 'framer-motion';
 
 export default function ServicesOverviewClient() {
@@ -62,22 +60,20 @@ export default function ServicesOverviewClient() {
                         {/* Image Side */}
                         <div className="lg:w-1/2 relative group">
                             <div className="absolute -inset-4 bg-accent/10 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                            <Link href={`/leistungen/${service.slug}`} className="block relative aspect-[16/9] lg:aspect-auto lg:h-full overflow-hidden rounded-2xl border border-white/5 shadow-2xl">
-                                <Image
-                                    src={service.image}
-                                    alt={`${service.title} - ${service.subtitle} - SEM MotorenTec Meisterbetrieb`}
-                                    fill
-                                    className={`object-cover transform group-hover:scale-105 transition-transform duration-700`}
-                                    sizes="(max-width: 1024px) 100vw, 50vw"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-anthracite/90 via-transparent to-transparent opacity-60" />
-
+                            <ImageSlideshow
+                                images={getGallery(service)}
+                                alt={`${service.title} - ${service.subtitle} - SEM MotorenTec Meisterbetrieb`}
+                                href={`/leistungen/${service.slug}`}
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                                quality={90}
+                                className="aspect-[16/9] lg:aspect-auto lg:h-full rounded-2xl border border-white/5 shadow-2xl"
+                            >
                                 {/* Badge */}
-                                <div className="absolute bottom-6 left-6 bg-accent text-white px-5 py-2.5 rounded-xl font-bold flex items-center gap-3 shadow-lg backdrop-blur-sm border border-white/20">
+                                <div className="absolute bottom-6 left-6 z-20 bg-accent text-white px-5 py-2.5 rounded-xl font-bold flex items-center gap-3 shadow-lg backdrop-blur-sm border border-white/20 pointer-events-none">
                                     {service.icon}
                                     <span>{service.subtitle}</span>
                                 </div>
-                            </Link>
+                            </ImageSlideshow>
                         </div>
 
                         {/* Content Side */}
@@ -110,7 +106,7 @@ export default function ServicesOverviewClient() {
                                 <div className="flex flex-wrap gap-4 pt-4">
                                     <a
                                         href="/kontakt"
-                                        className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg shadow-accent/20 hover:shadow-accent/40 animate-glow"
+                                        className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-accent/20 btn-hover btn-glow btn-shine animate-glow"
                                     >
                                         <span>Jetzt anfragen</span>
                                         <ArrowRight size={20} />

@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { services } from '@/data/services';
+import { brands } from '@/data/engines';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://www.sem-motorentec.de';
@@ -32,6 +33,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.9,
         },
         {
+            url: `${baseUrl}/motoren`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly' as const,
+            priority: 0.9,
+        },
+        {
             url: `${baseUrl}/impressum`,
             lastModified: new Date(),
             changeFrequency: 'yearly' as const,
@@ -59,5 +66,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.8,
     }));
 
-    return [...staticPages, ...servicePages];
+    // Markenseiten (/motoren/bmw)
+    const brandPages = brands.map((brand) => ({
+        url: `${baseUrl}/motoren/${brand.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+    }));
+
+    // Motorseiten (/motoren/bmw/n47)
+    const enginePages = brands.flatMap((brand) =>
+        brand.engines.map((engine) => ({
+            url: `${baseUrl}/motoren/${brand.slug}/${engine.slug}`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly' as const,
+            priority: 0.7,
+        }))
+    );
+
+    return [...staticPages, ...servicePages, ...brandPages, ...enginePages];
 }

@@ -141,7 +141,7 @@ const ContactForm = () => {
                           required
                           value={formData.hersteller}
                           onChange={handleChange}
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base text-white placeholder-white/30 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition-all"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base text-white placeholder-white/30 hover:border-white/25 focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-[0_0_0_4px_rgba(5,127,207,0.15)] focus:outline-none transition-all"
                           placeholder="z.B. BMW, Mercedes, Audi..."
                         />
                       </div>
@@ -153,7 +153,7 @@ const ContactForm = () => {
                           required
                           value={formData.modell}
                           onChange={handleChange}
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base text-white placeholder-white/30 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition-all"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base text-white placeholder-white/30 hover:border-white/25 focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-[0_0_0_4px_rgba(5,127,207,0.15)] focus:outline-none transition-all"
                           placeholder="z.B. 320d, C-Klasse, A4..."
                         />
                       </div>
@@ -164,7 +164,7 @@ const ContactForm = () => {
                           name="baujahr"
                           value={formData.baujahr}
                           onChange={handleChange}
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base text-white placeholder-white/30 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition-all"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base text-white placeholder-white/30 hover:border-white/25 focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-[0_0_0_4px_rgba(5,127,207,0.15)] focus:outline-none transition-all"
                           placeholder="z.B. 2018"
                         />
                       </div>
@@ -175,7 +175,7 @@ const ContactForm = () => {
                           name="motorleistung"
                           value={formData.motorleistung}
                           onChange={handleChange}
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base text-white placeholder-white/30 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition-all"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base text-white placeholder-white/30 hover:border-white/25 focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-[0_0_0_4px_rgba(5,127,207,0.15)] focus:outline-none transition-all"
                           placeholder="z.B. 140 kW / 190 PS"
                         />
                       </div>
@@ -201,7 +201,7 @@ const ContactForm = () => {
                             required
                             value={formData.schadenart}
                             onChange={handleChange}
-                            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base text-white focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition-colors appearance-none cursor-pointer"
+                            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-base text-white hover:border-white/25 focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-[0_0_0_4px_rgba(5,127,207,0.15)] focus:outline-none transition-colors appearance-none cursor-pointer"
                           >
                             <option value="" className="bg-anthracite-light text-white/50">Bitte wählen...</option>
                             <option value="motorinstandsetzung" className="bg-anthracite-light">Motorinstandsetzung</option>
@@ -224,7 +224,7 @@ const ContactForm = () => {
                           rows={4}
                           value={formData.schadeninfo}
                           onChange={handleChange}
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white placeholder-white/30 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition-colors resize-none"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white placeholder-white/30 hover:border-white/25 focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-[0_0_0_4px_rgba(5,127,207,0.15)] focus:outline-none transition-colors resize-none"
                           placeholder="Beschreiben Sie den Schaden..."
                         />
                       </div>
@@ -250,7 +250,7 @@ const ContactForm = () => {
                           required
                           value={formData.name}
                           onChange={handleChange}
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-3 text-base text-white placeholder-white/30 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition-all"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-3 text-base text-white placeholder-white/30 hover:border-white/25 focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-[0_0_0_4px_rgba(5,127,207,0.15)] focus:outline-none transition-all"
                           placeholder="Max Mustermann"
                         />
                       </div>
@@ -262,7 +262,7 @@ const ContactForm = () => {
                           required
                           value={formData.adresse}
                           onChange={handleChange}
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-3 text-base text-white placeholder-white/30 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition-all"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-3 text-base text-white placeholder-white/30 hover:border-white/25 focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-[0_0_0_4px_rgba(5,127,207,0.15)] focus:outline-none transition-all"
                           placeholder="Musterstraße 123"
                         />
                       </div>
@@ -274,7 +274,7 @@ const ContactForm = () => {
                           required
                           value={formData.plz}
                           onChange={handleChange}
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-3 text-base text-white placeholder-white/30 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition-all"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-3 text-base text-white placeholder-white/30 hover:border-white/25 focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-[0_0_0_4px_rgba(5,127,207,0.15)] focus:outline-none transition-all"
                           placeholder="12345"
                         />
                       </div>
@@ -286,7 +286,7 @@ const ContactForm = () => {
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-3 text-base text-white placeholder-white/30 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition-all"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-3 text-base text-white placeholder-white/30 hover:border-white/25 focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-[0_0_0_4px_rgba(5,127,207,0.15)] focus:outline-none transition-all"
                           placeholder="max@beispiel.de"
                         />
                       </div>
@@ -297,7 +297,7 @@ const ContactForm = () => {
                           name="telefon"
                           value={formData.telefon}
                           onChange={handleChange}
-                          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-3 text-base text-white placeholder-white/30 focus:border-accent focus:ring-1 focus:ring-accent focus:outline-none transition-all"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-3 text-base text-white placeholder-white/30 hover:border-white/25 focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-[0_0_0_4px_rgba(5,127,207,0.15)] focus:outline-none transition-all"
                           placeholder="+49 123 456789"
                         />
                       </div>
@@ -332,8 +332,8 @@ const ContactForm = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className={`w-full px-6 py-3 md:px-8 md:py-5 rounded-lg md:rounded-xl font-bold transition-all flex items-center justify-center gap-2 md:gap-3 shadow-xl transform text-sm md:text-lg group ${isFormValid && !isSubmitting
-                        ? 'bg-accent hover:bg-accent-dark text-white shadow-accent/20 hover:shadow-accent/40 hover:-translate-y-1 animate-glow cursor-pointer'
+                      className={`w-full px-6 py-3 md:px-8 md:py-5 rounded-lg md:rounded-xl font-bold transition-all flex items-center justify-center gap-2 md:gap-3 shadow-xl transform text-sm md:text-lg group btn-shine ${isFormValid && !isSubmitting
+                        ? 'bg-accent hover:bg-accent-dark text-white shadow-accent/20 btn-hover btn-glow animate-glow cursor-pointer'
                         : 'bg-white/10 text-white/50 hover:bg-white/20 cursor-not-allowed'
                         }`}
                     >

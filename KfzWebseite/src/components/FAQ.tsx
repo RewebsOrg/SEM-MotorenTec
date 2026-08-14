@@ -60,7 +60,7 @@ const FAQ = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
-              className="glass-card rounded-xl overflow-hidden"
+              className="glass-card rounded-xl overflow-hidden transition-colors duration-300 hover:border-accent/30 hover:bg-white/[0.06]"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
@@ -103,7 +103,7 @@ const FAQ = () => {
           <p className="text-white/60 mb-4">Ihre Frage ist nicht dabei?</p>
           <a
             href="/kontakt"
-            className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-6 py-3 rounded-lg font-semibold transition-all"
+            className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-6 py-3 rounded-lg font-semibold btn-hover btn-glow btn-shine"
           >
             Kontaktieren Sie uns
           </a>

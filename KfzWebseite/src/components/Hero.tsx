@@ -83,14 +83,14 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row items-start gap-3">
               <a
                 href="/kontakt"
-                className="group bg-accent hover:bg-accent-dark text-white px-5 py-3 md:px-8 md:py-4 rounded-lg font-bold transition-all flex items-center justify-center gap-2 shadow-lg shadow-accent/30 hover:shadow-accent/50 text-sm md:text-lg animate-glow"
+                className="group btn-hover btn-glow btn-shine bg-accent hover:bg-accent-dark text-white px-5 py-3 md:px-8 md:py-4 rounded-lg font-bold transition-all flex items-center justify-center gap-2 shadow-lg shadow-accent/30 hover:shadow-accent/50 text-sm md:text-lg animate-glow"
               >
                 <span>Jetzt Anfrage stellen</span>
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform md:w-[22px] md:h-[22px]" />
               </a>
               <a
                 href="#leistungen"
-                className="glass-card text-white px-5 py-3 md:px-8 md:py-4 rounded-lg font-bold hover:bg-white/10 transition-all flex items-center gap-2 text-sm md:text-base"
+                className="glass-card btn-hover hover:border-accent/40 text-white px-5 py-3 md:px-8 md:py-4 rounded-lg font-bold hover:bg-white/10 transition-all flex items-center gap-2 text-sm md:text-base"
               >
                 Unsere Leistungen
                 <ChevronRight size={18} className="md:w-5 md:h-5" />

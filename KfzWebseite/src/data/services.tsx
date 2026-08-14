@@ -2,7 +2,24 @@
 import React from 'react';
 import { Wrench, RefreshCw, Link2, Truck, Repeat } from 'lucide-react';
 
-export const services = [
+export interface Service {
+  id: string;
+  slug: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  detailedDescription: string;
+  features: string[];
+  icon: React.ReactNode;
+  /** Hauptbild – wird auch für Metadaten (og:image) genutzt. */
+  image: string;
+  /** Abweichendes erstes Bild auf der Startseite. */
+  homeImage?: string;
+  /** Weitere Bilder für die Slideshow. */
+  gallery?: string[];
+}
+
+export const services: Service[] = [
   {
     id: 'motorinstandsetzung',
     slug: 'motorinstandsetzung',
@@ -93,5 +110,22 @@ export const services = [
     features: ['Geprüfte Austauschmotoren', 'Schneller Einbau', 'Kosteneffizienter als Neukauf', 'Ein Jahr Gewährleistung'],
     icon: <Repeat size={28} />,
     image: '/images/austauschmotor.png',
+    homeImage: '/images/austauschmotor_home.jpg',
+    gallery: [
+      '/images/austauschmotor_bmw.jpg',
+      '/images/austauschmotor_vw_t6.jpg',
+    ],
   },
+];
+
+/** Alle Bilder einer Leistung – Hauptbild zuerst. */
+export const getGallery = (service: Service): string[] => [
+  service.image,
+  ...(service.gallery ?? []),
+];
+
+/** Wie getGallery, aber mit dem Startseiten-Bild als erstem Slide. */
+export const getHomeGallery = (service: Service): string[] => [
+  service.homeImage ?? service.image,
+  ...(service.gallery ?? []),
 ];

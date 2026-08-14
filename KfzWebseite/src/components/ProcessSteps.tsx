@@ -101,7 +101,7 @@ const ProcessSteps = () => {
                 >
                     <a
                         href="/kontakt"
-                        className="inline-flex items-center gap-3 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 ease-out shadow-xl shadow-accent/20 hover:shadow-accent/40 hover:-translate-y-0.5 text-lg group"
+                        className="inline-flex items-center gap-3 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-xl font-bold shadow-xl shadow-accent/20 text-lg group btn-hover btn-glow btn-shine"
                     >
                         <span>Jetzt Anfrage starten</span>
                         <svg className="w-5 h-5 transition-transform duration-300 ease-out group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">

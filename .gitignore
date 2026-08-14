@@ -1,0 +1,10 @@
+.DS_Store
+
+# Lokale Ablage für Fotos, die noch nicht auf der Website landen
+KfzWebseite/Neuer Ordner/
+
+# Interne Arbeitsdateien
+KfzWebseite/.claude/
+
+# Unsortierte WhatsApp-Bilder – die genutzten liegen unter public/images/motoren/
+KfzWebseite/public/images/bilderwerksatt/

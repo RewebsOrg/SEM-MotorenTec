@@ -4,10 +4,11 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
-import { services } from '@/data/services';
+import { services, getGallery } from '@/data/services';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import ImageSlideshow from '@/components/ImageSlideshow';
 import { motion } from 'framer-motion';
 
 interface ServicePageClientProps {
@@ -114,23 +115,20 @@ export default function ServicePageClient({ slug }: ServicePageClientProps) {
                         transition={{ duration: 0.6, delay: 0.6 }}
                         className="space-y-8"
                     >
-                        <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10 relative h-[400px]">
-                            <Image
-                                src={service.image}
-                                alt={`${service.title} - Detail Ansicht`}
-                                fill
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                                className="object-cover"
-                                quality={90}
-                            />
-                        </div>
+                        <ImageSlideshow
+                            images={getGallery(service)}
+                            alt={`${service.title} - Detail Ansicht`}
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            quality={90}
+                            className="rounded-2xl shadow-2xl shadow-black/50 border border-white/10 h-[400px]"
+                        />
 
                         <div className="bg-accent/10 rounded-2xl p-8 border border-accent/20">
                             <h3 className="text-xl font-bold text-white mb-4">Haben Sie Fragen?</h3>
                             <p className="text-white/70 mb-6">
                                 Wir beraten Sie gerne unverbindlich zu dieser Leistung. Kontaktieren Sie uns noch heute!
                             </p>
-                            <a href="#anfrage" className="block w-full bg-accent hover:bg-accent-dark text-center text-white font-bold py-4 rounded-xl transition-all">
+                            <a href="#anfrage" className="block w-full bg-accent hover:bg-accent-dark text-center text-white font-bold py-4 rounded-xl btn-hover btn-glow btn-shine">
                                 Jetzt Termin anfragen
                             </a>
                         </div>

@@ -173,3 +173,123 @@ video {
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
 }
+/* =========================================================
+   Einheitliche Hover-Effekte für Buttons, Links und Karten
+   ========================================================= */
+
+/* Leichtes Anheben beim Hovern, sanftes Zurückfedern beim Klick */
+.btn-hover {
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+  will-change: transform;
+}
+
+.btn-hover:hover {
+  transform: translateY(-2px);
+}
+
+.btn-hover:active {
+  transform: translateY(0);
+}
+
+/* Blaues Leuchten – für Buttons in Akzentfarbe */
+.btn-glow:hover {
+  box-shadow:
+    0 12px 30px -10px rgba(5, 127, 207, 0.75),
+    0 0 22px rgba(5, 127, 207, 0.35);
+}
+
+/* Heller Glanz, der beim Hovern über den Button wandert */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.28) 50%,
+      transparent 80%);
+  transform: translateX(-120%);
+  transition: transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.btn-shine:hover::after {
+  transform: translateX(120%);
+}
+
+/* Karten: dezentes Anheben mit blauem Rand */
+.card-hover {
+  transition:
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease,
+    background-color 0.4s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(5, 127, 207, 0.35);
+  box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.9);
+}
+
+/* Textlinks mit mitwachsender blauer Unterstreichung */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #057FCF, #3DA8F5);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Barrierefreiheit: Wer weniger Bewegung möchte, bekommt keine */
+@media (prefers-reduced-motion: reduce) {
+
+  .btn-hover,
+  .card-hover,
+  .link-underline::after {
+    transition: none;
+  }
+
+  .btn-hover:hover,
+  .card-hover:hover {
+    transform: none;
+  }
+
+  .btn-shine::after {
+    display: none;
+  }
+}
+
+/* Glaskarten reagieren weich auf die Maus */
+.glass,
+.glass-card {
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}

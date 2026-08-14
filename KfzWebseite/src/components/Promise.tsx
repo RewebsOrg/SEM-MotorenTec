@@ -70,7 +70,7 @@ const Promise = () => {
 
               <a
                 href="/kontakt"
-                className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-5 py-2.5 md:px-6 md:py-3 rounded-lg font-semibold transition-all text-sm md:text-base"
+                className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-5 py-2.5 md:px-6 md:py-3 rounded-lg font-semibold transition-all text-sm md:text-base btn-hover btn-glow btn-shine"
               >
                 Jetzt Kontakt aufnehmen
               </a>
@@ -84,12 +84,13 @@ const Promise = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="aspect-[4/3] glass-card rounded-xl md:rounded-2xl overflow-hidden relative">
+              <div className="group aspect-[4/3] md:aspect-[4/5] glass-card rounded-xl md:rounded-2xl overflow-hidden relative">
                 <Image
-                  src="/images/IMG_9186.JPG"
-                  alt="SEM MotorenTec Werkstatt"
+                  src="/images/sem-im-auto.jpeg"
+                  alt="Fahrzeugdiagnose mit dem Laptop bei SEM MotorenTec"
                   fill
-                  className="object-cover"
+                  quality={85}
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-anthracite/60 to-transparent" />
@@ -113,9 +114,9 @@ const Promise = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="glass-card p-3 md:p-6 rounded-lg md:rounded-xl text-center"
+              className="group glass-card card-hover p-3 md:p-6 rounded-lg md:rounded-xl text-center"
             >
-              <p className="text-2xl md:text-4xl font-black text-accent mb-1 md:mb-2">{stat.number}</p>
+              <p className="text-2xl md:text-4xl font-black text-accent mb-1 md:mb-2 transition-all duration-500 group-hover:drop-shadow-[0_0_18px_rgba(5,127,207,0.75)]">{stat.number}</p>
               <p className="text-white/60 text-xs md:text-sm">{stat.label}</p>
             </motion.div>
           ))}
@@ -130,9 +131,9 @@ const Promise = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="glass-card p-3 md:p-6 rounded-lg md:rounded-xl hover:bg-white/5 transition-colors"
+              className="group glass-card card-hover p-3 md:p-6 rounded-lg md:rounded-xl hover:bg-white/5"
             >
-              <div className="w-8 h-8 md:w-12 md:h-12 bg-accent/10 rounded-lg md:rounded-xl flex items-center justify-center mb-2 md:mb-4 text-accent">
+              <div className="w-8 h-8 md:w-12 md:h-12 bg-accent/10 rounded-lg md:rounded-xl flex items-center justify-center mb-2 md:mb-4 text-accent transition-all duration-500 group-hover:bg-accent group-hover:text-white group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-accent/40">
                 {value.icon}
               </div>
               <h5 className="text-white font-bold text-sm md:text-base mb-1 md:mb-2">{value.title}</h5>

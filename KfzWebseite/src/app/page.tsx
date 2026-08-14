@@ -24,6 +24,10 @@ const Services = dynamic(
   () => import('@/components/Services'),
   { loading: () => <div className="min-h-[600px] bg-anthracite" />, ssr: true }
 );
+const HappyCustomers = dynamic(
+  () => import('@/components/HappyCustomers'),
+  { loading: () => <div className="min-h-[420px] bg-anthracite" />, ssr: true }
+);
 const FAQ = dynamic(
   () => import('@/components/FAQ'),
   { loading: () => <div className="min-h-[400px] bg-anthracite" />, ssr: true }
@@ -48,11 +52,14 @@ export default function Home() {
           <p className="text-white/60 max-w-2xl mx-auto mb-4 md:mb-8 text-sm md:text-base">
             SEM MotorenTec steht für Qualität, Erfahrung und Leidenschaft. Erfahren Sie mehr über unsere Philosophie und unser Team.
           </p>
-          <a href="/ueber-uns" className="inline-block bg-white/10 hover:bg-white/20 text-white px-5 py-2 md:px-8 md:py-3 rounded-lg font-semibold transition-all text-sm md:text-base">
+          <a href="/ueber-uns" className="inline-block bg-white/10 hover:bg-white/20 text-white px-5 py-2 md:px-8 md:py-3 rounded-lg font-semibold text-sm md:text-base border border-white/10 hover:border-accent/40 btn-hover">
             Mehr über uns erfahren
           </a>
         </div>
       </section>
+
+      {/* Zufriedene Kunden */}
+      <HappyCustomers />
 
       {/* Short Contact Teaser */}
       <section className="py-10 md:py-20 bg-accent relative overflow-hidden">
@@ -61,7 +68,7 @@ export default function Home() {
           <p className="text-white/90 text-sm md:text-lg max-w-2xl mx-auto mb-4 md:mb-8">
             Kontaktieren Sie uns noch heute für ein unverbindliches Angebot. Wir kümmern uns um den Rest.
           </p>
-          <a href="/kontakt" className="inline-block bg-white text-accent hover:bg-gray-100 px-5 py-3 md:px-8 md:py-4 rounded-lg font-bold text-sm md:text-lg shadow-xl transition-all transform hover:scale-105">
+          <a href="/kontakt" className="inline-block bg-white text-accent hover:bg-gray-100 px-5 py-3 md:px-8 md:py-4 rounded-lg font-bold text-sm md:text-lg shadow-xl btn-hover btn-shine">
             Zum Anfrage-Formular
           </a>
         </div>
