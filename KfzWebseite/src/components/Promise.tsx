@@ -1,8 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { Target, Users, Shield, Wrench } from 'lucide-react';
+import ImageSlideshow from '@/components/ImageSlideshow';
+
+/** Bilder im Über-uns-Bereich. Weitere Fotos einfach hier anhängen. */
+const werkstattBilder = [
+  '/images/sem-im-auto.jpeg',
+  '/images/ueber-uns.jpeg',
+];
 
 const stats = [
   { number: '20+', label: 'Jahre Erfahrung' },
@@ -84,17 +90,15 @@ const Promise = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="group aspect-[4/3] md:aspect-[4/5] glass-card rounded-xl md:rounded-2xl overflow-hidden relative">
-                <Image
-                  src="/images/sem-im-auto.jpeg"
-                  alt="Fahrzeugdiagnose mit dem Laptop bei SEM MotorenTec"
-                  fill
-                  quality={85}
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-anthracite/60 to-transparent" />
-              </div>
+              <ImageSlideshow
+                images={werkstattBilder}
+                alt="Fahrzeugdiagnose bei SEM MotorenTec"
+                interval={4500}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={85}
+                pauseOnHover={false}
+                className="aspect-[4/3] md:aspect-[4/5] glass-card rounded-xl md:rounded-2xl"
+              />
 
               {/* Floating badge - smaller on mobile */}
               <div className="absolute -bottom-3 -left-3 md:-bottom-6 md:-left-6 bg-accent text-white p-3 md:p-6 rounded-xl md:rounded-2xl shadow-xl">

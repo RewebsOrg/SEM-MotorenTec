@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Phone, Mail, MapPin, Clock, CheckCircle } from 'lucide-react';
+import { Send, Phone, Mail, MapPin, Clock, CheckCircle, Fuel, Paperclip, FileText, X } from 'lucide-react';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +11,7 @@ const ContactForm = () => {
     modell: '',
     baujahr: '',
     motorleistung: '',
+    kraftstoff: '',
     // Kundendaten
     name: '',
     adresse: '',
@@ -24,6 +25,14 @@ const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [consent, setConsent] = useState(false);
 
+  // Angehängte Fotos (z.B. Fahrzeugschein)
+  const [dateien, setDateien] = useState<File[]>([]);
+  const [dateiFehler, setDateiFehler] = useState('');
+  const [zieheDatei, setZieheDatei] = useState(false);
+
+  const MAX_DATEIEN = 3;
+  const MAX_GESAMT = 4 * 1024 * 1024; // 4 MB – darüber lehnt der Server die Anfrage ab
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
@@ -35,6 +44,7 @@ const ContactForm = () => {
     formData.adresse.trim() !== '' &&
     formData.plz.trim() !== '' &&
     formData.email.trim() !== '' &&
+    formData.kraftstoff !== '' &&
     formData.schadenart !== '' &&
     consent;
 
@@ -45,6 +55,7 @@ const ContactForm = () => {
     const missing: string[] = [];
     if (formData.hersteller.trim() === '') missing.push('Hersteller');
     if (formData.modell.trim() === '') missing.push('Modell');
+    if (formData.kraftstoff === '') missing.push('Kraftstoff');
     if (formData.schadenart === '') missing.push('Art des Schadens');
     if (formData.name.trim() === '') missing.push('Name');
     if (formData.adresse.trim() === '') missing.push('Adresse');
@@ -65,12 +76,14 @@ const ContactForm = () => {
     setSubmitError('');
 
     try {
+      // Als FormData senden, damit auch Fotos mitgehen können
+      const daten = new FormData();
+      Object.entries(formData).forEach(([schluessel, wert]) => daten.append(schluessel, wert));
+      dateien.forEach((datei) => daten.append('anhaenge', datei));
+
       const response = await fetch('/api/kontakt', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        body: daten,
       });
 
       const data = await response.json();
@@ -89,6 +102,36 @@ const ContactForm = () => {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const dateienHinzufuegen = (neue: FileList | null) => {
+    if (!neue || neue.length === 0) return;
+    setDateiFehler('');
+
+    const erlaubt = Array.from(neue).filter(
+      (f) => f.type.startsWith('image/') || f.type === 'application/pdf'
+    );
+    if (erlaubt.length < neue.length) {
+      setDateiFehler('Nur Bilder (JPG, PNG, HEIC) oder PDF-Dateien sind möglich.');
+    }
+
+    const zusammen = [...dateien, ...erlaubt].slice(0, MAX_DATEIEN);
+    if (dateien.length + erlaubt.length > MAX_DATEIEN) {
+      setDateiFehler(`Es können maximal ${MAX_DATEIEN} Dateien angehängt werden.`);
+    }
+
+    const gesamt = zusammen.reduce((summe, f) => summe + f.size, 0);
+    if (gesamt > MAX_GESAMT) {
+      setDateiFehler('Die Dateien sind zusammen zu groß (maximal 4 MB). Bitte kleinere Fotos wählen.');
+      return;
+    }
+
+    setDateien(zusammen);
+  };
+
+  const dateiEntfernen = (index: number) => {
+    setDateien(dateien.filter((_, i) => i !== index));
+    setDateiFehler('');
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -180,6 +223,39 @@ const ContactForm = () => {
                         />
                       </div>
                     </div>
+
+                    <div>
+                      <label className="block text-white/80 font-medium text-sm mb-1 pl-1">
+                        Kraftstoff *
+                      </label>
+                      <div className="grid grid-cols-2 gap-2 md:gap-3 max-w-md">
+                        {[
+                          { wert: 'benzin', bezeichnung: 'Benzin' },
+                          { wert: 'diesel', bezeichnung: 'Diesel' },
+                        ].map((option) => {
+                          const aktiv = formData.kraftstoff === option.wert;
+                          return (
+                            <button
+                              key={option.wert}
+                              type="button"
+                              aria-pressed={aktiv}
+                              onClick={() => {
+                                setFormData({ ...formData, kraftstoff: option.wert });
+                                if (showErrors) setShowErrors(false);
+                              }}
+                              className={`flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-semibold text-sm md:text-base border transition-all duration-300 ${
+                                aktiv
+                                  ? 'bg-accent border-accent text-white shadow-lg shadow-accent/30 -translate-y-0.5'
+                                  : 'bg-white/5 border-white/10 text-white/70 hover:border-accent/40 hover:text-white hover:bg-white/[0.08]'
+                              }`}
+                            >
+                              <Fuel size={17} />
+                              {option.bezeichnung}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
                   </div>
 
                   {/* Section 2: Schaden-Informationen */}
@@ -227,6 +303,82 @@ const ContactForm = () => {
                           className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm md:text-base text-white placeholder-white/30 hover:border-white/25 focus:border-accent focus:ring-1 focus:ring-accent focus:shadow-[0_0_0_4px_rgba(5,127,207,0.15)] focus:outline-none transition-colors resize-none"
                           placeholder="Beschreiben Sie den Schaden..."
                         />
+                      </div>
+
+                      <div>
+                        <label className="block text-white/80 font-medium text-sm mb-1 pl-1">
+                          Fotos anhängen{' '}
+                          <span className="text-white/40 font-normal">
+                            (optional – z.B. Fahrzeugschein oder Schadensbild)
+                          </span>
+                        </label>
+
+                        <label
+                          onDragOver={(e) => {
+                            e.preventDefault();
+                            setZieheDatei(true);
+                          }}
+                          onDragLeave={() => setZieheDatei(false)}
+                          onDrop={(e) => {
+                            e.preventDefault();
+                            setZieheDatei(false);
+                            dateienHinzufuegen(e.dataTransfer.files);
+                          }}
+                          className={`flex flex-col items-center justify-center gap-1.5 w-full cursor-pointer rounded-lg border border-dashed px-4 py-6 transition-all duration-300 ${
+                            zieheDatei
+                              ? 'border-accent bg-accent/10'
+                              : 'border-white/20 bg-white/5 hover:border-accent/60 hover:bg-white/[0.08]'
+                          }`}
+                        >
+                          <Paperclip className="text-accent" size={22} />
+                          <span className="text-white/80 text-sm font-medium">
+                            Datei auswählen oder hierher ziehen
+                          </span>
+                          <span className="text-white/40 text-xs text-center">
+                            JPG, PNG oder PDF · bis zu 3 Dateien · zusammen maximal 4 MB
+                          </span>
+                          <input
+                            type="file"
+                            accept="image/*,application/pdf"
+                            multiple
+                            className="hidden"
+                            onChange={(e) => {
+                              dateienHinzufuegen(e.target.files);
+                              e.target.value = '';
+                            }}
+                          />
+                        </label>
+
+                        {dateiFehler && (
+                          <p className="text-red-400 text-xs mt-2 pl-1">{dateiFehler}</p>
+                        )}
+
+                        {dateien.length > 0 && (
+                          <ul className="mt-3 space-y-2">
+                            {dateien.map((datei, index) => (
+                              <li
+                                key={`${datei.name}-${index}`}
+                                className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-lg px-3 py-2"
+                              >
+                                <FileText size={16} className="text-accent flex-shrink-0" />
+                                <span className="text-white/80 text-sm truncate flex-1">
+                                  {datei.name}
+                                </span>
+                                <span className="text-white/40 text-xs whitespace-nowrap">
+                                  {(datei.size / 1024 / 1024).toFixed(1)} MB
+                                </span>
+                                <button
+                                  type="button"
+                                  onClick={() => dateiEntfernen(index)}
+                                  aria-label={`${datei.name} entfernen`}
+                                  className="text-white/40 hover:text-red-400 transition-colors"
+                                >
+                                  <X size={16} />
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
                       </div>
                     </div>
                   </div>

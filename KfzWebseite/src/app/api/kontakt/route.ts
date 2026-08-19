@@ -12,13 +12,35 @@ export async function POST(request: Request) {
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     try {
-        const body = await request.json();
+        // Das Formular sendet FormData (damit Fotos mitgehen können).
+        // JSON wird weiterhin akzeptiert, falls es von woanders kommt.
+        const contentType = request.headers.get('content-type') || '';
+        let body: Record<string, string> = {};
+        const anhaenge: { filename: string; content: string }[] = [];
+
+        if (contentType.includes('multipart/form-data')) {
+            const formData = await request.formData();
+            for (const [schluessel, wert] of formData.entries()) {
+                if (typeof wert === 'string') {
+                    body[schluessel] = wert;
+                } else if (wert && anhaenge.length < 3) {
+                    const puffer = Buffer.from(await wert.arrayBuffer());
+                    anhaenge.push({
+                        filename: wert.name || 'anhang',
+                        content: puffer.toString('base64'),
+                    });
+                }
+            }
+        } else {
+            body = await request.json();
+        }
 
         const {
             hersteller,
             modell,
             baujahr,
             motorleistung,
+            kraftstoff,
             schadenart: schadensart,
             schadeninfo: weitereInfos,
             name,
@@ -27,6 +49,10 @@ export async function POST(request: Request) {
             email,
             telefon
         } = body;
+
+        const kraftstoffText =
+            kraftstoff === 'benzin' ? 'Benzin' : kraftstoff === 'diesel' ? 'Diesel' : '-';
+        console.log(`Anfrage mit ${anhaenge.length} Anhang/Anhängen erhalten.`);
 
         console.log("Sende Email an Werkstatt...");
 
@@ -49,6 +75,7 @@ export async function POST(request: Request) {
               <tr><td style="padding: 5px 0;"><strong>Modell:</strong></td><td>${modell || '-'}</td></tr>
               <tr><td style="padding: 5px 0;"><strong>Baujahr:</strong></td><td>${baujahr || 'Nicht angegeben'}</td></tr>
               <tr><td style="padding: 5px 0;"><strong>Motorleistung:</strong></td><td>${motorleistung || 'Nicht angegeben'}</td></tr>
+              <tr><td style="padding: 5px 0;"><strong>Kraftstoff:</strong></td><td>${kraftstoffText}</td></tr>
             </table>
 
             <h3 style="color: #333; border-bottom: 2px solid #0066cc; padding-bottom: 10px;">🔧 SCHADENSBESCHREIBUNG</h3>
@@ -64,9 +91,15 @@ export async function POST(request: Request) {
               <tr><td style="padding: 5px 0;"><strong>Email:</strong></td><td>${email || '-'}</td></tr>
               <tr><td style="padding: 5px 0;"><strong>Telefon:</strong></td><td>${telefon || 'Nicht angegeben'}</td></tr>
             </table>
+
+            ${anhaenge.length > 0
+                ? `<h3 style="color: #333; border-bottom: 2px solid #0066cc; padding-bottom: 10px;">📎 ANHÄNGE</h3>
+                   <p style="margin: 0;">${anhaenge.map((a) => a.filename).join('<br>')}</p>`
+                : ''}
           </div>
         </div>
-      `
+      `,
+            attachments: anhaenge,
         });
 
         if (adminError) {

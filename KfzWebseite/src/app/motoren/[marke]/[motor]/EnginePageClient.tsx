@@ -108,14 +108,14 @@ export default function EnginePageClient({ brand, engine }: EnginePageClientProp
       </section>
 
       {/* Inhalt */}
-      <div className="max-w-7xl mx-auto px-6 pb-12 md:pb-20">
-        <div className="grid lg:grid-cols-3 gap-10 lg:gap-16 items-start">
+      <div className="max-w-7xl mx-auto px-6 pb-12 md:pb-20 overflow-x-clip">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           {/* Textspalte */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="lg:col-span-2"
+            className="lg:col-span-7"
           >
             <div className="mb-10 md:mb-14 space-y-4">
               {toParagraphs(engineText ? engineText.intro : engine.intro).map((absatz) => (
@@ -214,7 +214,7 @@ export default function EnginePageClient({ brand, engine }: EnginePageClientProp
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.45 }}
-            className="space-y-6 lg:sticky lg:top-32"
+            className="lg:col-span-5 lg:-mr-10 xl:-mr-24 space-y-6 lg:sticky lg:top-32"
           >
             {photos.length > 0 ? (
               <ImageSlideshow
@@ -223,7 +223,7 @@ export default function EnginePageClient({ brand, engine }: EnginePageClientProp
                 interval={4000}
                 sizes="(max-width: 1024px) 100vw, 33vw"
                 quality={85}
-                className="w-full aspect-[4/3] rounded-2xl border border-white/10 shadow-2xl shadow-black/50"
+                className="w-full aspect-[4/3] lg:aspect-square rounded-2xl border border-white/10 shadow-2xl shadow-black/50"
               />
             ) : (
               <div className="relative h-56 md:h-64 rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50">
