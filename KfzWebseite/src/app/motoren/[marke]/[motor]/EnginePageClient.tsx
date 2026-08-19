@@ -214,7 +214,7 @@ export default function EnginePageClient({ brand, engine }: EnginePageClientProp
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.45 }}
-            className="lg:col-span-5 lg:-mr-10 xl:-mr-24 space-y-6 lg:sticky lg:top-32"
+            className="lg:col-span-5 2xl:-mr-16 space-y-6 lg:sticky lg:top-32"
           >
             {photos.length > 0 ? (
               <ImageSlideshow
