@@ -108,7 +108,7 @@ export default function EnginePageClient({ brand, engine }: EnginePageClientProp
       </section>
 
       {/* Inhalt */}
-      <div className="max-w-7xl mx-auto px-6 pb-12 md:pb-20 overflow-x-clip">
+      <div className="max-w-7xl mx-auto px-6 pb-12 md:pb-20">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           {/* Textspalte */}
           <motion.div
@@ -214,7 +214,7 @@ export default function EnginePageClient({ brand, engine }: EnginePageClientProp
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.45 }}
-            className="lg:col-span-5 2xl:-mr-16 space-y-6 lg:sticky lg:top-32"
+            className="lg:col-span-5 space-y-6 lg:sticky lg:top-32"
           >
             {photos.length > 0 ? (
               <ImageSlideshow
